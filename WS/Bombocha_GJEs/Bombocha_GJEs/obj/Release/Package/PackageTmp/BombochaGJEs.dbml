@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="BombochaGJEs" Class="BombochaGJEsDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=DIANA\SQLEXPRESS2012;Initial Catalog=BombochaGJEs;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="BombochaGJEsConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.SelectLstCatalogoTamanio" Method="SelectLstCatalogoTamanio">
+    <ElementType Name="SelectLstCatalogoTamanioResult">
+      <Column Name="IDCatalogoTamanio" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sDescripcion" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="bActiva" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SelectLstCatalogoEscenarios" Method="SelectLstCatalogoEscenarios">
+    <ElementType Name="SelectLstCatalogoEscenariosResult">
+      <Column Name="IDCatalogoEscenario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sNombre" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sDescripcion" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="bActivo" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SelectLstCatalogoCanica" Method="SelectLstCatalogoCanica">
+    <ElementType Name="SelectLstCatalogoCanicaResult">
+      <Column Name="IDCatalogoCanica" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IDCatalogoTamanio" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sNombre" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sDescripción" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="bActiva" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.DeleteAmigo" Method="DeleteAmigo">
+    <Parameter Name="IDUsuario" Parameter="iDUsuario" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IDUsuarioAmigo" Parameter="iDUsuarioAmigo" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.DeleteJuego" Method="DeleteJuego">
+    <Parameter Name="IDJuego" Parameter="iDJuego" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsertAmigo" Method="InsertAmigo">
+    <Parameter Name="IDUsuario" Parameter="iDUsuario" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IDUsuarioAmigo" Parameter="iDUsuarioAmigo" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsertCanica" Method="InsertCanica">
+    <Parameter Name="IDUsuario" Parameter="iDUsuario" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IDJuego" Parameter="iDJuego" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IDCatalogoCanica" Parameter="iDCatalogoCanica" Type="System.Int32" DbType="Int" />
+    <Parameter Name="fX" Type="System.Double" DbType="Float" />
+    <Parameter Name="fY" Type="System.Double" DbType="Float" />
+    <Parameter Name="fZ" Type="System.Double" DbType="Float" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsertJuego" Method="InsertJuego">
+    <Parameter Name="IDUsuario" Parameter="iDUsuario" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IDCatalogoEscenario" Parameter="iDCatalogoEscenario" Type="System.Int32" DbType="Int" />
+    <Parameter Name="sNombre" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="dFecha" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="bActivo" Type="System.Boolean" DbType="Bit" />
+    <ElementType Name="InsertJuegoResult">
+      <Column Name="IDJuego" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sNombre" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="dFecha" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.InsertUpdateUsuarios" Method="InsertUpdateUsuarios">
+    <Parameter Name="EMail" Parameter="eMail" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="sAlias" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="sPass" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="sConfirm" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="bActivo" Type="System.Boolean" DbType="Bit" />
+    <ElementType Name="InsertUpdateUsuariosResult">
+      <Column Name="IDUsuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EMail" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="sAlias" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SelectJuegoXIDJuego" Method="SelectJuegoXIDJuego">
+    <Parameter Name="IDJuego" Parameter="iDJuego" Type="System.Int32" DbType="Int" />
+    <ElementType Name="SelectJuegoXIDJuegoResult">
+      <Column Name="IDJuego" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IDUsuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IDCatalogoEscenario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sNombre" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="dFecha" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="bActivo" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SelectLstCanicasXIDJuego" Method="SelectLstCanicasXIDJuego">
+    <Parameter Name="IDJuego" Parameter="iDJuego" Type="System.Int32" DbType="Int" />
+    <ElementType Name="SelectLstCanicasXIDJuegoResult">
+      <Column Name="IDUsuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IDJuego" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IDCatalogoCanica" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="fX" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="fY" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="fZ" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SelectLstJuegosXsAlias" Method="SelectLstJuegosXsAlias">
+    <Parameter Name="sAlias" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="SelectLstJuegosXsAliasResult">
+      <Column Name="IDJuego" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IDUsuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IDCatalogoEscenario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sNombre" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="dFecha" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="bActivo" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.UsuarioLogin" Method="UsuarioLogin">
+    <Parameter Name="EMail" Parameter="eMail" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="sPass" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="UsuarioLoginResult">
+      <Column Name="IDUsuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EMail" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="sAlias" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+</Database>
