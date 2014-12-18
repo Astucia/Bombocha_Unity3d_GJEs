@@ -1,0 +1,1223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectLstCatalogoTamanioJSON">
+        <s:complexType />
+      </s:element>
+      <s:element name="SelectLstCatalogoTamanioJSONResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SelectLstCatalogoEscenariosJSON">
+        <s:complexType />
+      </s:element>
+      <s:element name="SelectLstCatalogoEscenariosJSONResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SelectLstCatalogoCanicaJSON">
+        <s:complexType />
+      </s:element>
+      <s:element name="SelectLstCatalogoCanicaJSONResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SelectLstCatalogoTamanio">
+        <s:complexType />
+      </s:element>
+      <s:element name="SelectLstCatalogoTamanioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SelectLstCatalogoTamanioResult" type="tns:ArrayOfSelectLstCatalogoTamanioResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSelectLstCatalogoTamanioResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SelectLstCatalogoTamanioResult" nillable="true" type="tns:SelectLstCatalogoTamanioResult" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SelectLstCatalogoTamanioResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IDCatalogoTamanio" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="sDescripcion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="bActiva" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SelectLstCatalogoEscenarios">
+        <s:complexType />
+      </s:element>
+      <s:element name="SelectLstCatalogoEscenariosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SelectLstCatalogoEscenariosResult" type="tns:ArrayOfSelectLstCatalogoEscenariosResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSelectLstCatalogoEscenariosResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SelectLstCatalogoEscenariosResult" nillable="true" type="tns:SelectLstCatalogoEscenariosResult" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SelectLstCatalogoEscenariosResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IDCatalogoEscenario" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="sNombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sDescripcion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="bActivo" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SelectLstCatalogoCanica">
+        <s:complexType />
+      </s:element>
+      <s:element name="SelectLstCatalogoCanicaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SelectLstCatalogoCanicaResult" type="tns:ArrayOfSelectLstCatalogoCanicaResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSelectLstCatalogoCanicaResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SelectLstCatalogoCanicaResult" nillable="true" type="tns:SelectLstCatalogoCanicaResult" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SelectLstCatalogoCanicaResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IDCatalogoCanica" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IDCatalogoTamanio" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="sNombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sDescripción" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="bActiva" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="InsertUpdateUsuariosJSON">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="eMail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sAlias" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sPass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sConfirm" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertUpdateUsuariosJSONResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="InsertAmigoJSON">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iDUsuario" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="iDUsuarioAmigo" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertAmigoJSONResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="InsertCanicaJSON">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iDUsuario" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="iDJuego" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="iDCatalogoCanica" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="fX" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="fY" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="fZ" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertCanicaJSONResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="InsertJuegoJSON">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iDUsuario" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="iDCatalogoEscenario" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="sNombre" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertJuegoJSONResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="InsertUpdateUsuarios">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="eMail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sAlias" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sPass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sConfirm" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertUpdateUsuariosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InsertUpdateUsuariosResult" type="tns:ArrayOfInsertUpdateUsuariosResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInsertUpdateUsuariosResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="InsertUpdateUsuariosResult" nillable="true" type="tns:InsertUpdateUsuariosResult" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="InsertUpdateUsuariosResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IDUsuario" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="EMail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sAlias" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="InsertAmigo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iDUsuario" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="iDUsuarioAmigo" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertAmigoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InsertAmigoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertCanica">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iDUsuario" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="iDJuego" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="iDCatalogoCanica" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="fX" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="fY" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="fZ" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertCanicaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InsertCanicaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertJuego">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iDUsuario" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="iDCatalogoEscenario" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="sNombre" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertJuegoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InsertJuegoResult" type="tns:ArrayOfInsertJuegoResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInsertJuegoResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="InsertJuegoResult" nillable="true" type="tns:InsertJuegoResult" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="InsertJuegoResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IDJuego" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="sNombre" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="dFecha" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SelectJuegoXIDJuegoJSON">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iDJuego" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectJuegoXIDJuegoJSONResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SelectLstCanicasXIDJuegoJSON">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iDJuego" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectLstCanicasXIDJuegoJSONResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SelectLstJuegosXsAliasJSON">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sAlias" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectLstJuegosXsAliasJSONResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="UsuarioLoginJSON">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="eMail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sPass" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UsuarioLoginJSONResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SelectJuegoXIDJuego">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iDJuego" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectJuegoXIDJuegoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SelectJuegoXIDJuegoResult" type="tns:ArrayOfSelectJuegoXIDJuegoResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSelectJuegoXIDJuegoResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SelectJuegoXIDJuegoResult" nillable="true" type="tns:SelectJuegoXIDJuegoResult" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SelectJuegoXIDJuegoResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IDJuego" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IDUsuario" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IDCatalogoEscenario" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="sNombre" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="dFecha" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="bActivo" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SelectLstCanicasXIDJuego">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iDJuego" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectLstCanicasXIDJuegoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SelectLstCanicasXIDJuegoResult" type="tns:ArrayOfSelectLstCanicasXIDJuegoResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSelectLstCanicasXIDJuegoResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SelectLstCanicasXIDJuegoResult" nillable="true" type="tns:SelectLstCanicasXIDJuegoResult" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SelectLstCanicasXIDJuegoResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IDUsuario" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IDJuego" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IDCatalogoCanica" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="fX" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="fY" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="fZ" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SelectLstJuegosXsAlias">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sAlias" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SelectLstJuegosXsAliasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SelectLstJuegosXsAliasResult" type="tns:ArrayOfSelectLstJuegosXsAliasResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSelectLstJuegosXsAliasResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SelectLstJuegosXsAliasResult" nillable="true" type="tns:SelectLstJuegosXsAliasResult" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SelectLstJuegosXsAliasResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IDJuego" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IDUsuario" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IDCatalogoEscenario" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="sNombre" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="dFecha" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="bActivo" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UsuarioLogin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="eMail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sPass" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UsuarioLoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UsuarioLoginResult" type="tns:ArrayOfUsuarioLoginResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfUsuarioLoginResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="UsuarioLoginResult" nillable="true" type="tns:UsuarioLoginResult" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="UsuarioLoginResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IDUsuario" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="EMail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sAlias" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DeleteAmigoJSON">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iDUsuario" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="iDUsuarioAmigo" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteAmigoJSONResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DeleteJuegoJSON">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iDJuego" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteJuegoJSONResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DeleteAmigo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iDUsuario" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="iDUsuarioAmigo" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteAmigoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteAmigoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteJuego">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iDJuego" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteJuegoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteJuegoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="SelectLstCatalogoTamanioJSONSoapIn">
+    <wsdl:part name="parameters" element="tns:SelectLstCatalogoTamanioJSON" />
+  </wsdl:message>
+  <wsdl:message name="SelectLstCatalogoTamanioJSONSoapOut">
+    <wsdl:part name="parameters" element="tns:SelectLstCatalogoTamanioJSONResponse" />
+  </wsdl:message>
+  <wsdl:message name="SelectLstCatalogoEscenariosJSONSoapIn">
+    <wsdl:part name="parameters" element="tns:SelectLstCatalogoEscenariosJSON" />
+  </wsdl:message>
+  <wsdl:message name="SelectLstCatalogoEscenariosJSONSoapOut">
+    <wsdl:part name="parameters" element="tns:SelectLstCatalogoEscenariosJSONResponse" />
+  </wsdl:message>
+  <wsdl:message name="SelectLstCatalogoCanicaJSONSoapIn">
+    <wsdl:part name="parameters" element="tns:SelectLstCatalogoCanicaJSON" />
+  </wsdl:message>
+  <wsdl:message name="SelectLstCatalogoCanicaJSONSoapOut">
+    <wsdl:part name="parameters" element="tns:SelectLstCatalogoCanicaJSONResponse" />
+  </wsdl:message>
+  <wsdl:message name="SelectLstCatalogoTamanioSoapIn">
+    <wsdl:part name="parameters" element="tns:SelectLstCatalogoTamanio" />
+  </wsdl:message>
+  <wsdl:message name="SelectLstCatalogoTamanioSoapOut">
+    <wsdl:part name="parameters" element="tns:SelectLstCatalogoTamanioResponse" />
+  </wsdl:message>
+  <wsdl:message name="SelectLstCatalogoEscenariosSoapIn">
+    <wsdl:part name="parameters" element="tns:SelectLstCatalogoEscenarios" />
+  </wsdl:message>
+  <wsdl:message name="SelectLstCatalogoEscenariosSoapOut">
+    <wsdl:part name="parameters" element="tns:SelectLstCatalogoEscenariosResponse" />
+  </wsdl:message>
+  <wsdl:message name="SelectLstCatalogoCanicaSoapIn">
+    <wsdl:part name="parameters" element="tns:SelectLstCatalogoCanica" />
+  </wsdl:message>
+  <wsdl:message name="SelectLstCatalogoCanicaSoapOut">
+    <wsdl:part name="parameters" element="tns:SelectLstCatalogoCanicaResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertUpdateUsuariosJSONSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertUpdateUsuariosJSON" />
+  </wsdl:message>
+  <wsdl:message name="InsertUpdateUsuariosJSONSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertUpdateUsuariosJSONResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertAmigoJSONSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertAmigoJSON" />
+  </wsdl:message>
+  <wsdl:message name="InsertAmigoJSONSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertAmigoJSONResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertCanicaJSONSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertCanicaJSON" />
+  </wsdl:message>
+  <wsdl:message name="InsertCanicaJSONSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertCanicaJSONResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertJuegoJSONSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertJuegoJSON" />
+  </wsdl:message>
+  <wsdl:message name="InsertJuegoJSONSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertJuegoJSONResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertUpdateUsuariosSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertUpdateUsuarios" />
+  </wsdl:message>
+  <wsdl:message name="InsertUpdateUsuariosSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertUpdateUsuariosResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertAmigoSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertAmigo" />
+  </wsdl:message>
+  <wsdl:message name="InsertAmigoSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertAmigoResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertCanicaSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertCanica" />
+  </wsdl:message>
+  <wsdl:message name="InsertCanicaSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertCanicaResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertJuegoSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertJuego" />
+  </wsdl:message>
+  <wsdl:message name="InsertJuegoSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertJuegoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SelectJuegoXIDJuegoJSONSoapIn">
+    <wsdl:part name="parameters" element="tns:SelectJuegoXIDJuegoJSON" />
+  </wsdl:message>
+  <wsdl:message name="SelectJuegoXIDJuegoJSONSoapOut">
+    <wsdl:part name="parameters" element="tns:SelectJuegoXIDJuegoJSONResponse" />
+  </wsdl:message>
+  <wsdl:message name="SelectLstCanicasXIDJuegoJSONSoapIn">
+    <wsdl:part name="parameters" element="tns:SelectLstCanicasXIDJuegoJSON" />
+  </wsdl:message>
+  <wsdl:message name="SelectLstCanicasXIDJuegoJSONSoapOut">
+    <wsdl:part name="parameters" element="tns:SelectLstCanicasXIDJuegoJSONResponse" />
+  </wsdl:message>
+  <wsdl:message name="SelectLstJuegosXsAliasJSONSoapIn">
+    <wsdl:part name="parameters" element="tns:SelectLstJuegosXsAliasJSON" />
+  </wsdl:message>
+  <wsdl:message name="SelectLstJuegosXsAliasJSONSoapOut">
+    <wsdl:part name="parameters" element="tns:SelectLstJuegosXsAliasJSONResponse" />
+  </wsdl:message>
+  <wsdl:message name="UsuarioLoginJSONSoapIn">
+    <wsdl:part name="parameters" element="tns:UsuarioLoginJSON" />
+  </wsdl:message>
+  <wsdl:message name="UsuarioLoginJSONSoapOut">
+    <wsdl:part name="parameters" element="tns:UsuarioLoginJSONResponse" />
+  </wsdl:message>
+  <wsdl:message name="SelectJuegoXIDJuegoSoapIn">
+    <wsdl:part name="parameters" element="tns:SelectJuegoXIDJuego" />
+  </wsdl:message>
+  <wsdl:message name="SelectJuegoXIDJuegoSoapOut">
+    <wsdl:part name="parameters" element="tns:SelectJuegoXIDJuegoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SelectLstCanicasXIDJuegoSoapIn">
+    <wsdl:part name="parameters" element="tns:SelectLstCanicasXIDJuego" />
+  </wsdl:message>
+  <wsdl:message name="SelectLstCanicasXIDJuegoSoapOut">
+    <wsdl:part name="parameters" element="tns:SelectLstCanicasXIDJuegoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SelectLstJuegosXsAliasSoapIn">
+    <wsdl:part name="parameters" element="tns:SelectLstJuegosXsAlias" />
+  </wsdl:message>
+  <wsdl:message name="SelectLstJuegosXsAliasSoapOut">
+    <wsdl:part name="parameters" element="tns:SelectLstJuegosXsAliasResponse" />
+  </wsdl:message>
+  <wsdl:message name="UsuarioLoginSoapIn">
+    <wsdl:part name="parameters" element="tns:UsuarioLogin" />
+  </wsdl:message>
+  <wsdl:message name="UsuarioLoginSoapOut">
+    <wsdl:part name="parameters" element="tns:UsuarioLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteAmigoJSONSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteAmigoJSON" />
+  </wsdl:message>
+  <wsdl:message name="DeleteAmigoJSONSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteAmigoJSONResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteJuegoJSONSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteJuegoJSON" />
+  </wsdl:message>
+  <wsdl:message name="DeleteJuegoJSONSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteJuegoJSONResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteAmigoSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteAmigo" />
+  </wsdl:message>
+  <wsdl:message name="DeleteAmigoSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteAmigoResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteJuegoSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteJuego" />
+  </wsdl:message>
+  <wsdl:message name="DeleteJuegoSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteJuegoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="BombochaGJEsSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectLstCatalogoTamanioJSON">
+      <wsdl:input message="tns:SelectLstCatalogoTamanioJSONSoapIn" />
+      <wsdl:output message="tns:SelectLstCatalogoTamanioJSONSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectLstCatalogoEscenariosJSON">
+      <wsdl:input message="tns:SelectLstCatalogoEscenariosJSONSoapIn" />
+      <wsdl:output message="tns:SelectLstCatalogoEscenariosJSONSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectLstCatalogoCanicaJSON">
+      <wsdl:input message="tns:SelectLstCatalogoCanicaJSONSoapIn" />
+      <wsdl:output message="tns:SelectLstCatalogoCanicaJSONSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectLstCatalogoTamanio">
+      <wsdl:input message="tns:SelectLstCatalogoTamanioSoapIn" />
+      <wsdl:output message="tns:SelectLstCatalogoTamanioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectLstCatalogoEscenarios">
+      <wsdl:input message="tns:SelectLstCatalogoEscenariosSoapIn" />
+      <wsdl:output message="tns:SelectLstCatalogoEscenariosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectLstCatalogoCanica">
+      <wsdl:input message="tns:SelectLstCatalogoCanicaSoapIn" />
+      <wsdl:output message="tns:SelectLstCatalogoCanicaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertUpdateUsuariosJSON">
+      <wsdl:input message="tns:InsertUpdateUsuariosJSONSoapIn" />
+      <wsdl:output message="tns:InsertUpdateUsuariosJSONSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertAmigoJSON">
+      <wsdl:input message="tns:InsertAmigoJSONSoapIn" />
+      <wsdl:output message="tns:InsertAmigoJSONSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertCanicaJSON">
+      <wsdl:input message="tns:InsertCanicaJSONSoapIn" />
+      <wsdl:output message="tns:InsertCanicaJSONSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertJuegoJSON">
+      <wsdl:input message="tns:InsertJuegoJSONSoapIn" />
+      <wsdl:output message="tns:InsertJuegoJSONSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertUpdateUsuarios">
+      <wsdl:input message="tns:InsertUpdateUsuariosSoapIn" />
+      <wsdl:output message="tns:InsertUpdateUsuariosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertAmigo">
+      <wsdl:input message="tns:InsertAmigoSoapIn" />
+      <wsdl:output message="tns:InsertAmigoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertCanica">
+      <wsdl:input message="tns:InsertCanicaSoapIn" />
+      <wsdl:output message="tns:InsertCanicaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertJuego">
+      <wsdl:input message="tns:InsertJuegoSoapIn" />
+      <wsdl:output message="tns:InsertJuegoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectJuegoXIDJuegoJSON">
+      <wsdl:input message="tns:SelectJuegoXIDJuegoJSONSoapIn" />
+      <wsdl:output message="tns:SelectJuegoXIDJuegoJSONSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectLstCanicasXIDJuegoJSON">
+      <wsdl:input message="tns:SelectLstCanicasXIDJuegoJSONSoapIn" />
+      <wsdl:output message="tns:SelectLstCanicasXIDJuegoJSONSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectLstJuegosXsAliasJSON">
+      <wsdl:input message="tns:SelectLstJuegosXsAliasJSONSoapIn" />
+      <wsdl:output message="tns:SelectLstJuegosXsAliasJSONSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UsuarioLoginJSON">
+      <wsdl:input message="tns:UsuarioLoginJSONSoapIn" />
+      <wsdl:output message="tns:UsuarioLoginJSONSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectJuegoXIDJuego">
+      <wsdl:input message="tns:SelectJuegoXIDJuegoSoapIn" />
+      <wsdl:output message="tns:SelectJuegoXIDJuegoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectLstCanicasXIDJuego">
+      <wsdl:input message="tns:SelectLstCanicasXIDJuegoSoapIn" />
+      <wsdl:output message="tns:SelectLstCanicasXIDJuegoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectLstJuegosXsAlias">
+      <wsdl:input message="tns:SelectLstJuegosXsAliasSoapIn" />
+      <wsdl:output message="tns:SelectLstJuegosXsAliasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UsuarioLogin">
+      <wsdl:input message="tns:UsuarioLoginSoapIn" />
+      <wsdl:output message="tns:UsuarioLoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAmigoJSON">
+      <wsdl:input message="tns:DeleteAmigoJSONSoapIn" />
+      <wsdl:output message="tns:DeleteAmigoJSONSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteJuegoJSON">
+      <wsdl:input message="tns:DeleteJuegoJSONSoapIn" />
+      <wsdl:output message="tns:DeleteJuegoJSONSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAmigo">
+      <wsdl:input message="tns:DeleteAmigoSoapIn" />
+      <wsdl:output message="tns:DeleteAmigoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteJuego">
+      <wsdl:input message="tns:DeleteJuegoSoapIn" />
+      <wsdl:output message="tns:DeleteJuegoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BombochaGJEsSoap" type="tns:BombochaGJEsSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectLstCatalogoTamanioJSON">
+      <soap:operation soapAction="http://tempuri.org/SelectLstCatalogoTamanioJSON" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectLstCatalogoEscenariosJSON">
+      <soap:operation soapAction="http://tempuri.org/SelectLstCatalogoEscenariosJSON" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectLstCatalogoCanicaJSON">
+      <soap:operation soapAction="http://tempuri.org/SelectLstCatalogoCanicaJSON" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectLstCatalogoTamanio">
+      <soap:operation soapAction="http://tempuri.org/SelectLstCatalogoTamanio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectLstCatalogoEscenarios">
+      <soap:operation soapAction="http://tempuri.org/SelectLstCatalogoEscenarios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectLstCatalogoCanica">
+      <soap:operation soapAction="http://tempuri.org/SelectLstCatalogoCanica" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertUpdateUsuariosJSON">
+      <soap:operation soapAction="http://tempuri.org/InsertUpdateUsuariosJSON" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertAmigoJSON">
+      <soap:operation soapAction="http://tempuri.org/InsertAmigoJSON" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertCanicaJSON">
+      <soap:operation soapAction="http://tempuri.org/InsertCanicaJSON" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertJuegoJSON">
+      <soap:operation soapAction="http://tempuri.org/InsertJuegoJSON" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertUpdateUsuarios">
+      <soap:operation soapAction="http://tempuri.org/InsertUpdateUsuarios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertAmigo">
+      <soap:operation soapAction="http://tempuri.org/InsertAmigo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertCanica">
+      <soap:operation soapAction="http://tempuri.org/InsertCanica" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertJuego">
+      <soap:operation soapAction="http://tempuri.org/InsertJuego" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectJuegoXIDJuegoJSON">
+      <soap:operation soapAction="http://tempuri.org/SelectJuegoXIDJuegoJSON" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectLstCanicasXIDJuegoJSON">
+      <soap:operation soapAction="http://tempuri.org/SelectLstCanicasXIDJuegoJSON" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectLstJuegosXsAliasJSON">
+      <soap:operation soapAction="http://tempuri.org/SelectLstJuegosXsAliasJSON" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UsuarioLoginJSON">
+      <soap:operation soapAction="http://tempuri.org/UsuarioLoginJSON" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectJuegoXIDJuego">
+      <soap:operation soapAction="http://tempuri.org/SelectJuegoXIDJuego" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectLstCanicasXIDJuego">
+      <soap:operation soapAction="http://tempuri.org/SelectLstCanicasXIDJuego" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectLstJuegosXsAlias">
+      <soap:operation soapAction="http://tempuri.org/SelectLstJuegosXsAlias" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UsuarioLogin">
+      <soap:operation soapAction="http://tempuri.org/UsuarioLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAmigoJSON">
+      <soap:operation soapAction="http://tempuri.org/DeleteAmigoJSON" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteJuegoJSON">
+      <soap:operation soapAction="http://tempuri.org/DeleteJuegoJSON" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAmigo">
+      <soap:operation soapAction="http://tempuri.org/DeleteAmigo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteJuego">
+      <soap:operation soapAction="http://tempuri.org/DeleteJuego" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BombochaGJEsSoap12" type="tns:BombochaGJEsSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectLstCatalogoTamanioJSON">
+      <soap12:operation soapAction="http://tempuri.org/SelectLstCatalogoTamanioJSON" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectLstCatalogoEscenariosJSON">
+      <soap12:operation soapAction="http://tempuri.org/SelectLstCatalogoEscenariosJSON" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectLstCatalogoCanicaJSON">
+      <soap12:operation soapAction="http://tempuri.org/SelectLstCatalogoCanicaJSON" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectLstCatalogoTamanio">
+      <soap12:operation soapAction="http://tempuri.org/SelectLstCatalogoTamanio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectLstCatalogoEscenarios">
+      <soap12:operation soapAction="http://tempuri.org/SelectLstCatalogoEscenarios" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectLstCatalogoCanica">
+      <soap12:operation soapAction="http://tempuri.org/SelectLstCatalogoCanica" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertUpdateUsuariosJSON">
+      <soap12:operation soapAction="http://tempuri.org/InsertUpdateUsuariosJSON" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertAmigoJSON">
+      <soap12:operation soapAction="http://tempuri.org/InsertAmigoJSON" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertCanicaJSON">
+      <soap12:operation soapAction="http://tempuri.org/InsertCanicaJSON" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertJuegoJSON">
+      <soap12:operation soapAction="http://tempuri.org/InsertJuegoJSON" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertUpdateUsuarios">
+      <soap12:operation soapAction="http://tempuri.org/InsertUpdateUsuarios" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertAmigo">
+      <soap12:operation soapAction="http://tempuri.org/InsertAmigo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertCanica">
+      <soap12:operation soapAction="http://tempuri.org/InsertCanica" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertJuego">
+      <soap12:operation soapAction="http://tempuri.org/InsertJuego" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectJuegoXIDJuegoJSON">
+      <soap12:operation soapAction="http://tempuri.org/SelectJuegoXIDJuegoJSON" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectLstCanicasXIDJuegoJSON">
+      <soap12:operation soapAction="http://tempuri.org/SelectLstCanicasXIDJuegoJSON" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectLstJuegosXsAliasJSON">
+      <soap12:operation soapAction="http://tempuri.org/SelectLstJuegosXsAliasJSON" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UsuarioLoginJSON">
+      <soap12:operation soapAction="http://tempuri.org/UsuarioLoginJSON" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectJuegoXIDJuego">
+      <soap12:operation soapAction="http://tempuri.org/SelectJuegoXIDJuego" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectLstCanicasXIDJuego">
+      <soap12:operation soapAction="http://tempuri.org/SelectLstCanicasXIDJuego" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectLstJuegosXsAlias">
+      <soap12:operation soapAction="http://tempuri.org/SelectLstJuegosXsAlias" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UsuarioLogin">
+      <soap12:operation soapAction="http://tempuri.org/UsuarioLogin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAmigoJSON">
+      <soap12:operation soapAction="http://tempuri.org/DeleteAmigoJSON" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteJuegoJSON">
+      <soap12:operation soapAction="http://tempuri.org/DeleteJuegoJSON" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAmigo">
+      <soap12:operation soapAction="http://tempuri.org/DeleteAmigo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteJuego">
+      <soap12:operation soapAction="http://tempuri.org/DeleteJuego" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BombochaGJEs">
+    <wsdl:port name="BombochaGJEsSoap" binding="tns:BombochaGJEsSoap">
+      <soap:address location="http://frailetoc.com/GAMES/BombochaGJEs/WS/WS/BombochaGJEs.asmx" />
+    </wsdl:port>
+    <wsdl:port name="BombochaGJEsSoap12" binding="tns:BombochaGJEsSoap12">
+      <soap12:address location="http://frailetoc.com/GAMES/BombochaGJEs/WS/WS/BombochaGJEs.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

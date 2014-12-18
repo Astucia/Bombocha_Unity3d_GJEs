@@ -3,6 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bombocha_GJEs", "Bombocha_GJEs\Bombocha_GJEs.csproj", "{93B84AB2-67FA-456F-B495-882A3BA9B2CC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsumeBombochaWS", "ConsumeBombochaWS\ConsumeBombochaWS.csproj", "{9CD16A12-67EB-45FC-8E90-05E9DFF26838}"
+	ProjectSection(ProjectDependencies) = postProject
+		{93B84AB2-67FA-456F-B495-882A3BA9B2CC} = {93B84AB2-67FA-456F-B495-882A3BA9B2CC}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +18,10 @@ Global
 		{93B84AB2-67FA-456F-B495-882A3BA9B2CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{93B84AB2-67FA-456F-B495-882A3BA9B2CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{93B84AB2-67FA-456F-B495-882A3BA9B2CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CD16A12-67EB-45FC-8E90-05E9DFF26838}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CD16A12-67EB-45FC-8E90-05E9DFF26838}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CD16A12-67EB-45FC-8E90-05E9DFF26838}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CD16A12-67EB-45FC-8E90-05E9DFF26838}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
