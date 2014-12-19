@@ -10,13 +10,13 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/Bombocha_GJEs.dll">
-      <publishTime>12/17/2014 17:07:03</publishTime>
+      <publishTime>12/18/2014 23:43:20</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>12/15/2014 16:25:36</publishTime>
     </File>
     <File Include="BombochaGJEs.dbml">
-      <publishTime>12/16/2014 11:30:29</publishTime>
+      <publishTime>12/18/2014 23:41:22</publishTime>
     </File>
     <File Include="BombochaGJEs.xsc">
       <publishTime>12/16/2014 10:46:23</publishTime>
@@ -24,11 +24,14 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
     <File Include="BombochaGJEs.xss">
       <publishTime>12/16/2014 10:46:23</publishTime>
     </File>
+    <File Include="crossdomain.xml">
+      <publishTime>12/18/2014 17:24:18</publishTime>
+    </File>
     <File Include="packages.config">
       <publishTime>12/15/2014 16:25:41</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>12/16/2014 14:41:24</publishTime>
+      <publishTime>12/17/2014 23:39:50</publishTime>
     </File>
     <File Include="WS/BombochaGJEs.asmx">
       <publishTime>12/16/2014 10:17:52</publishTime>

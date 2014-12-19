@@ -76,13 +76,6 @@ namespace Bombocha_GJEs
 			return ((ISingleResult<SelectLstCatalogoEscenariosResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SelectLstCatalogoCanica")]
-		public ISingleResult<SelectLstCatalogoCanicaResult> SelectLstCatalogoCanica()
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<SelectLstCatalogoCanicaResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.DeleteAmigo")]
 		public int DeleteAmigo([global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDUsuario", DbType="Int")] System.Nullable<int> iDUsuario, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="IDUsuarioAmigo", DbType="Int")] System.Nullable<int> iDUsuarioAmigo)
 		{
@@ -151,6 +144,13 @@ namespace Bombocha_GJEs
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), eMail, sPass);
 			return ((ISingleResult<UsuarioLoginResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SelectLstCatalogoCanica")]
+		public ISingleResult<SelectLstCatalogoCanicaResult> SelectLstCatalogoCanica()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<SelectLstCatalogoCanicaResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -291,104 +291,6 @@ namespace Bombocha_GJEs
 				if ((this._bActivo != value))
 				{
 					this._bActivo = value;
-				}
-			}
-		}
-	}
-	
-	public partial class SelectLstCatalogoCanicaResult
-	{
-		
-		private int _IDCatalogoCanica;
-		
-		private int _IDCatalogoTamanio;
-		
-		private string _sNombre;
-		
-		private string _sDescripción;
-		
-		private bool _bActiva;
-		
-		public SelectLstCatalogoCanicaResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDCatalogoCanica", DbType="Int NOT NULL")]
-		public int IDCatalogoCanica
-		{
-			get
-			{
-				return this._IDCatalogoCanica;
-			}
-			set
-			{
-				if ((this._IDCatalogoCanica != value))
-				{
-					this._IDCatalogoCanica = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDCatalogoTamanio", DbType="Int NOT NULL")]
-		public int IDCatalogoTamanio
-		{
-			get
-			{
-				return this._IDCatalogoTamanio;
-			}
-			set
-			{
-				if ((this._IDCatalogoTamanio != value))
-				{
-					this._IDCatalogoTamanio = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sNombre", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string sNombre
-		{
-			get
-			{
-				return this._sNombre;
-			}
-			set
-			{
-				if ((this._sNombre != value))
-				{
-					this._sNombre = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sDescripción", DbType="NVarChar(250)")]
-		public string sDescripción
-		{
-			get
-			{
-				return this._sDescripción;
-			}
-			set
-			{
-				if ((this._sDescripción != value))
-				{
-					this._sDescripción = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bActiva", DbType="Bit NOT NULL")]
-		public bool bActiva
-		{
-			get
-			{
-				return this._bActiva;
-			}
-			set
-			{
-				if ((this._bActiva != value))
-				{
-					this._bActiva = value;
 				}
 			}
 		}
@@ -923,6 +825,104 @@ namespace Bombocha_GJEs
 				if ((this._sAlias != value))
 				{
 					this._sAlias = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SelectLstCatalogoCanicaResult
+	{
+		
+		private int _IDCatalogoCanica;
+		
+		private int _IDCatalogoTamanio;
+		
+		private string _sNombre;
+		
+		private string _sDescripcion;
+		
+		private bool _bActiva;
+		
+		public SelectLstCatalogoCanicaResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDCatalogoCanica", DbType="Int NOT NULL")]
+		public int IDCatalogoCanica
+		{
+			get
+			{
+				return this._IDCatalogoCanica;
+			}
+			set
+			{
+				if ((this._IDCatalogoCanica != value))
+				{
+					this._IDCatalogoCanica = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDCatalogoTamanio", DbType="Int NOT NULL")]
+		public int IDCatalogoTamanio
+		{
+			get
+			{
+				return this._IDCatalogoTamanio;
+			}
+			set
+			{
+				if ((this._IDCatalogoTamanio != value))
+				{
+					this._IDCatalogoTamanio = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sNombre", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string sNombre
+		{
+			get
+			{
+				return this._sNombre;
+			}
+			set
+			{
+				if ((this._sNombre != value))
+				{
+					this._sNombre = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sDescripcion", DbType="NVarChar(250)")]
+		public string sDescripcion
+		{
+			get
+			{
+				return this._sDescripcion;
+			}
+			set
+			{
+				if ((this._sDescripcion != value))
+				{
+					this._sDescripcion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_bActiva", DbType="Bit NOT NULL")]
+		public bool bActiva
+		{
+			get
+			{
+				return this._bActiva;
+			}
+			set
+			{
+				if ((this._bActiva != value))
+				{
+					this._bActiva = value;
 				}
 			}
 		}

@@ -15,15 +15,6 @@
       <Column Name="bActivo" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Name="dbo.SelectLstCatalogoCanica" Method="SelectLstCatalogoCanica">
-    <ElementType Name="SelectLstCatalogoCanicaResult">
-      <Column Name="IDCatalogoCanica" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="IDCatalogoTamanio" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="sNombre" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="sDescripción" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="bActiva" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.DeleteAmigo" Method="DeleteAmigo">
     <Parameter Name="IDUsuario" Parameter="iDUsuario" Type="System.Int32" DbType="Int" />
     <Parameter Name="IDUsuarioAmigo" Parameter="iDUsuarioAmigo" Type="System.Int32" DbType="Int" />
@@ -111,6 +102,15 @@
       <Column Name="IDUsuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="EMail" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
       <Column Name="sAlias" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SelectLstCatalogoCanica" Method="SelectLstCatalogoCanica">
+    <ElementType Name="SelectLstCatalogoCanicaResult">
+      <Column Name="IDCatalogoCanica" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IDCatalogoTamanio" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sNombre" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sDescripcion" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="bActiva" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
 </Database>

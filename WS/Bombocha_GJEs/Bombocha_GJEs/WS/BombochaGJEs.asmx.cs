@@ -42,7 +42,7 @@ namespace Bombocha_GJEs.WS
              
             string Response = JsonConvert.SerializeObject(LstCatTamanio);
             Context.Response.Clear();
-            Context.Response.ContentType = "application/json";
+            Context.Response.ContentType = "text/json; charset=UTF-8";
             Context.Response.AddHeader("content-length", Response.Length.ToString());
             Context.Response.Flush();
 
@@ -58,7 +58,7 @@ namespace Bombocha_GJEs.WS
              
             string Response = JsonConvert.SerializeObject(LstCatEsc);
             Context.Response.Clear();
-            Context.Response.ContentType = "application/json";
+            Context.Response.ContentType = "text/json; charset=UTF-8";
             Context.Response.AddHeader("content-length", Response.Length.ToString());
             Context.Response.Flush();
 
@@ -73,7 +73,7 @@ namespace Bombocha_GJEs.WS
             List<SelectLstCatalogoCanicaResult> LstCatCan = DC.SelectLstCatalogoCanica().ToList();
             string Response = JsonConvert.SerializeObject(LstCatCan);
             Context.Response.Clear();
-            Context.Response.ContentType = "application/json";
+            Context.Response.ContentType = "text/json; charset=UTF-8";
             Context.Response.AddHeader("content-length", Response.Length.ToString());
             Context.Response.Flush();
 
@@ -120,7 +120,7 @@ namespace Bombocha_GJEs.WS
              
             string Response = JsonConvert.SerializeObject( LstUsuarios);
             Context.Response.Clear();
-            Context.Response.ContentType = "application/json";
+            Context.Response.ContentType = "text/json; charset=UTF-8";
             Context.Response.AddHeader("content-length", Response.Length.ToString());
             Context.Response.Flush();
 
@@ -136,7 +136,7 @@ namespace Bombocha_GJEs.WS
              
             string Response = JsonConvert.SerializeObject("OK");
             Context.Response.Clear();
-            Context.Response.ContentType = "application/json";
+            Context.Response.ContentType = "text/json; charset=UTF-8";
             Context.Response.AddHeader("content-length", Response.Length.ToString());
             Context.Response.Flush();
 
@@ -152,7 +152,7 @@ namespace Bombocha_GJEs.WS
             
             string Response = JsonConvert.SerializeObject("OK");
             Context.Response.Clear();
-            Context.Response.ContentType = "application/json";
+            Context.Response.ContentType = "text/json; charset=UTF-8";
             Context.Response.AddHeader("content-length", Response.Length.ToString());
             Context.Response.Flush();
 
@@ -168,7 +168,7 @@ namespace Bombocha_GJEs.WS
             
             string Response = JsonConvert.SerializeObject(LstInsertJuego);
             Context.Response.Clear();
-            Context.Response.ContentType = "application/json";
+            Context.Response.ContentType = "text/json; charset=UTF-8";
             Context.Response.AddHeader("content-length", Response.Length.ToString());
             Context.Response.Flush();
 
@@ -224,7 +224,7 @@ namespace Bombocha_GJEs.WS
             
             string Response = JsonConvert.SerializeObject(LstJuego);
             Context.Response.Clear();
-            Context.Response.ContentType = "application/json";
+            Context.Response.ContentType = "text/json; charset=UTF-8";
             Context.Response.AddHeader("content-length", Response.Length.ToString());
             Context.Response.Flush();
 
@@ -240,7 +240,7 @@ namespace Bombocha_GJEs.WS
             
             string Response = JsonConvert.SerializeObject(LstCanicas);
             Context.Response.Clear();
-            Context.Response.ContentType = "application/json";
+            Context.Response.ContentType = "text/json; charset=UTF-8";
             Context.Response.AddHeader("content-length", Response.Length.ToString());
             Context.Response.Flush();
 
@@ -256,7 +256,7 @@ namespace Bombocha_GJEs.WS
             
             string Response = JsonConvert.SerializeObject(LstJuegos);
             Context.Response.Clear();
-            Context.Response.ContentType = "application/json";
+            Context.Response.ContentType = "text/json; charset=UTF-8";
             Context.Response.AddHeader("content-length", Response.Length.ToString());
             Context.Response.Flush();
 
@@ -271,21 +271,32 @@ namespace Bombocha_GJEs.WS
             List<UsuarioLoginResult> LstUsuario = DC.UsuarioLogin(eMail, sPass).ToList();
             
             string Response = JsonConvert.SerializeObject(LstUsuario);
-            Context.Response.Clear();
-            Context.Response.ContentType = "application/json";
-            Context.Response.AddHeader("content-length", Response.Length.ToString());
-            Context.Response.Flush();
 
+            Context.Response.Clear();
+            Context.Response.ContentType = "text/json; charset=UTF-8";
+            Context.Response.AddHeader("content-length", Response.Length.ToString());
+            //Context.Response.Charset = "UTF-8";
+            //Context.Response.ContentEncoding = System.Text.Encoding.UTF8;
+            Context.Response.Flush();
             Context.Response.Write(Response);
 
         }
 
         [WebMethod]
         [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json)]
-        public string UsuarioLogin2JSON(string eMail, string sPass)
+        public void UsuarioLogin2JSON(string eMail, string sPass)
         {
             List<UsuarioLoginResult> LstUsuario = DC.UsuarioLogin(eMail, sPass).ToList();
-            return JsonConvert.SerializeObject(LstUsuario);
+
+            string Response = JsonConvert.SerializeObject(LstUsuario);
+
+            Context.Response.Clear();
+            Context.Response.ContentType = "text/json; charset=UTF-8";
+            Context.Response.AddHeader("content-length", Response.Length.ToString());
+            //Context.Response.Charset = "UTF-8";
+            //Context.Response.ContentEncoding = System.Text.Encoding.UTF8;
+            Context.Response.Flush();
+            Context.Response.Write(Response);
         }
                
 
