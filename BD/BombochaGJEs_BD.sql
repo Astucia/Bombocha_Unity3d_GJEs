@@ -1,8 +1,3 @@
-/****** Object:  StoredProcedure [dbo].[DeleteAmigo]    Script Date: 16/12/2014 01:15:14 p. m. ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
 -- =============================================
 -- Author:		<Author,,Name>
 -- Create date: <Create Date,,>
@@ -20,7 +15,7 @@ BEGIN
 END
 
 GO
-/****** Object:  StoredProcedure [dbo].[DeleteJuego]    Script Date: 16/12/2014 01:15:14 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[DeleteJuego]    Script Date: 19/12/2014 01:10:21 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -38,7 +33,7 @@ BEGIN
 END
 
 GO
-/****** Object:  StoredProcedure [dbo].[InsertAmigo]    Script Date: 16/12/2014 01:15:14 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[InsertAmigo]    Script Date: 19/12/2014 01:10:21 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -65,7 +60,7 @@ BEGIN
 END
 
 GO
-/****** Object:  StoredProcedure [dbo].[InsertCanica]    Script Date: 16/12/2014 01:15:14 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[InsertCanica]    Script Date: 19/12/2014 01:10:21 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -103,7 +98,7 @@ BEGIN
 END
 
 GO
-/****** Object:  StoredProcedure [dbo].[InsertJuego]    Script Date: 16/12/2014 01:15:14 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[InsertJuego]    Script Date: 19/12/2014 01:10:21 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -148,7 +143,7 @@ BEGIN
 END
 
 GO
-/****** Object:  StoredProcedure [dbo].[InsertUpdateUsuarios]    Script Date: 16/12/2014 01:15:14 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[InsertUpdateUsuarios]    Script Date: 19/12/2014 01:10:21 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -216,7 +211,7 @@ BEGIN
 END
 
 GO
-/****** Object:  StoredProcedure [dbo].[SelectJuegoXIDJuego]    Script Date: 16/12/2014 01:15:14 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[SelectJuegoXIDJuego]    Script Date: 19/12/2014 01:10:21 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -241,7 +236,7 @@ BEGIN
 END
 
 GO
-/****** Object:  StoredProcedure [dbo].[SelectLstCanicasXIDJuego]    Script Date: 16/12/2014 01:15:14 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[SelectLstCanicasXIDJuego]    Script Date: 19/12/2014 01:10:21 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -268,7 +263,7 @@ BEGIN
 END
 
 GO
-/****** Object:  StoredProcedure [dbo].[SelectLstCatalogoCanica]    Script Date: 16/12/2014 01:15:14 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[SelectLstCatalogoCanica]    Script Date: 19/12/2014 01:10:21 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -284,13 +279,13 @@ BEGIN
 	SELECT [IDCatalogoCanica]
 		  ,[IDCatalogoTamanio]
 		  ,[sNombre]
-		  ,[sDescripción]
+		  ,[sDescripcion]
 		  ,[bActiva]
 	  FROM [dbo].[CatalogoCanica]
 END
 
 GO
-/****** Object:  StoredProcedure [dbo].[SelectLstCatalogoEscenarios]    Script Date: 16/12/2014 01:15:14 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[SelectLstCatalogoEscenarios]    Script Date: 19/12/2014 01:10:21 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -312,7 +307,7 @@ BEGIN
 END
 
 GO
-/****** Object:  StoredProcedure [dbo].[SelectLstCatalogoTamanio]    Script Date: 16/12/2014 01:15:14 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[SelectLstCatalogoTamanio]    Script Date: 19/12/2014 01:10:21 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -332,7 +327,7 @@ BEGIN
 END
 
 GO
-/****** Object:  StoredProcedure [dbo].[SelectLstJuegosXsAlias]    Script Date: 16/12/2014 01:15:14 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[SelectLstJuegosXsAlias]    Script Date: 19/12/2014 01:10:21 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -359,7 +354,7 @@ BEGIN
 END
 
 GO
-/****** Object:  StoredProcedure [dbo].[UsuarioLogin]    Script Date: 16/12/2014 01:15:14 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[UsuarioLogin]    Script Date: 19/12/2014 01:10:21 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -374,13 +369,24 @@ CREATE PROCEDURE [dbo].[UsuarioLogin]
 	,@sPass		nvarchar(50)
 AS
 BEGIN
-	SELECT IDUsuario,EMail,sAlias 
+	DECLARE @IDUsuarioR int
+	DECLARE @EMailR nvarchar(500)
+	DECLARE @sAliasR nvarchar(50)
+
+	SELECT @IDUsuarioR = IDUsuario,@EMailR = EMail,@sAliasR = sAlias 
 	FROM Usuarios 
 	WHERE EMail = @Email AND sPass = dbo.fn_getVarCharMD5(@sPass)
+
+	IF (SELECT ISNULL(@IDUsuarioR,-1)) = -1
+	BEGIN
+		SELECT @IDUsuarioR = -1,@EMailR = 'ERROR',@sAliasR = 'Correo o contraseña incorrecta'
+	END
+
+	SELECT @IDUsuarioR AS  IDUsuario,@EMailR AS EMail,@sAliasR AS sAlias
 END
 
 GO
-/****** Object:  UserDefinedFunction [dbo].[fn_getVarCharMD5]    Script Date: 16/12/2014 01:15:14 p. m. ******/
+/****** Object:  UserDefinedFunction [dbo].[fn_getVarCharMD5]    Script Date: 19/12/2014 01:10:21 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -409,7 +415,7 @@ END
 
 
 GO
-/****** Object:  Table [dbo].[Amigos]    Script Date: 16/12/2014 01:15:14 p. m. ******/
+/****** Object:  Table [dbo].[Amigos]    Script Date: 19/12/2014 01:10:21 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -420,7 +426,7 @@ CREATE TABLE [dbo].[Amigos](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[Canica]    Script Date: 16/12/2014 01:15:14 p. m. ******/
+/****** Object:  Table [dbo].[Canica]    Script Date: 19/12/2014 01:10:21 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -435,7 +441,7 @@ CREATE TABLE [dbo].[Canica](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[CatalogoCanica]    Script Date: 16/12/2014 01:15:14 p. m. ******/
+/****** Object:  Table [dbo].[CatalogoCanica]    Script Date: 19/12/2014 01:10:21 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -444,7 +450,7 @@ CREATE TABLE [dbo].[CatalogoCanica](
 	[IDCatalogoCanica] [int] IDENTITY(1,1) NOT NULL,
 	[IDCatalogoTamanio] [int] NOT NULL,
 	[sNombre] [nvarchar](50) NOT NULL,
-	[sDescripción] [nvarchar](250) NULL,
+	[sDescripcion] [nvarchar](250) NULL,
 	[bActiva] [bit] NOT NULL,
  CONSTRAINT [PK_CatalogoCanica] PRIMARY KEY CLUSTERED 
 (
@@ -453,7 +459,7 @@ CREATE TABLE [dbo].[CatalogoCanica](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[CatalogoEscenario]    Script Date: 16/12/2014 01:15:14 p. m. ******/
+/****** Object:  Table [dbo].[CatalogoEscenario]    Script Date: 19/12/2014 01:10:21 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -470,7 +476,7 @@ CREATE TABLE [dbo].[CatalogoEscenario](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[CatalogoTamanio]    Script Date: 16/12/2014 01:15:14 p. m. ******/
+/****** Object:  Table [dbo].[CatalogoTamanio]    Script Date: 19/12/2014 01:10:21 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -486,7 +492,7 @@ CREATE TABLE [dbo].[CatalogoTamanio](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[Juego]    Script Date: 16/12/2014 01:15:14 p. m. ******/
+/****** Object:  Table [dbo].[Juego]    Script Date: 19/12/2014 01:10:21 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -505,7 +511,7 @@ CREATE TABLE [dbo].[Juego](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[Usuarios]    Script Date: 16/12/2014 01:15:14 p. m. ******/
+/****** Object:  Table [dbo].[Usuarios]    Script Date: 19/12/2014 01:10:21 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -529,10 +535,10 @@ INSERT [dbo].[Canica] ([IDUsuario], [IDJuego], [IDCatalogoCanica], [fX], [fY], [
 INSERT [dbo].[Canica] ([IDUsuario], [IDJuego], [IDCatalogoCanica], [fX], [fY], [fZ]) VALUES (1, 1, 2, 2, 0, 2)
 SET IDENTITY_INSERT [dbo].[CatalogoCanica] ON 
 
-INSERT [dbo].[CatalogoCanica] ([IDCatalogoCanica], [IDCatalogoTamanio], [sNombre], [sDescripción], [bActiva]) VALUES (1, 1, N'Chiquis', N'Rápida y furiosa', 1)
-INSERT [dbo].[CatalogoCanica] ([IDCatalogoCanica], [IDCatalogoTamanio], [sNombre], [sDescripción], [bActiva]) VALUES (2, 1, N'Hacha', N'Veloz  y certera', 1)
-INSERT [dbo].[CatalogoCanica] ([IDCatalogoCanica], [IDCatalogoTamanio], [sNombre], [sDescripción], [bActiva]) VALUES (3, 2, N'Johny', N'¿Qué diablos?', 1)
-INSERT [dbo].[CatalogoCanica] ([IDCatalogoCanica], [IDCatalogoTamanio], [sNombre], [sDescripción], [bActiva]) VALUES (4, 3, N'La Mole', N'Oh yea!', 1)
+INSERT [dbo].[CatalogoCanica] ([IDCatalogoCanica], [IDCatalogoTamanio], [sNombre], [sDescripcion], [bActiva]) VALUES (1, 1, N'Chiquis', N'Rápida y furiosa', 1)
+INSERT [dbo].[CatalogoCanica] ([IDCatalogoCanica], [IDCatalogoTamanio], [sNombre], [sDescripcion], [bActiva]) VALUES (2, 1, N'Hacha', N'Veloz  y certera', 1)
+INSERT [dbo].[CatalogoCanica] ([IDCatalogoCanica], [IDCatalogoTamanio], [sNombre], [sDescripcion], [bActiva]) VALUES (3, 2, N'Johny', N'¿Qué diablos?', 1)
+INSERT [dbo].[CatalogoCanica] ([IDCatalogoCanica], [IDCatalogoTamanio], [sNombre], [sDescripcion], [bActiva]) VALUES (4, 3, N'La Mole', N'Oh yea!', 1)
 SET IDENTITY_INSERT [dbo].[CatalogoCanica] OFF
 SET IDENTITY_INSERT [dbo].[CatalogoEscenario] ON 
 
@@ -547,7 +553,7 @@ SET IDENTITY_INSERT [dbo].[CatalogoTamanio] OFF
 SET IDENTITY_INSERT [dbo].[Juego] ON 
 
 INSERT [dbo].[Juego] ([IDJuego], [IDUsuario], [IDCatalogoEscenario], [sNombre], [dFecha], [bActivo]) VALUES (1, 1, 1, N'PRIMER JUEGO', CAST(0x0000A40300D2665A AS DateTime), 1)
-INSERT [dbo].[Juego] ([IDJuego], [IDUsuario], [IDCatalogoEscenario], [sNombre], [dFecha], [bActivo]) VALUES (2, 1, 1, N'SEGUNDO JUEGO', CAST(0x0000A40300D293EB AS DateTime), 1)
+INSERT [dbo].[Juego] ([IDJuego], [IDUsuario], [IDCatalogoEscenario], [sNombre], [dFecha], [bActivo]) VALUES (2, 1, 1, N'SEGUNDO JUEGO', CAST(0x0000A40300D293EB AS DateTime), 0)
 SET IDENTITY_INSERT [dbo].[Juego] OFF
 SET IDENTITY_INSERT [dbo].[Usuarios] ON 
 
@@ -601,4 +607,3 @@ REFERENCES [dbo].[Usuarios] ([IDUsuario])
 GO
 ALTER TABLE [dbo].[Juego] CHECK CONSTRAINT [FK_Juego_Usuarios]
 GO
-
