@@ -1,3 +1,8 @@
+/****** Object:  StoredProcedure [dbo].[DeleteAmigo]    Script Date: 21/12/2014 12:27:20 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
 -- =============================================
 -- Author:		<Author,,Name>
 -- Create date: <Create Date,,>
@@ -14,8 +19,9 @@ BEGIN
 
 END
 
+
 GO
-/****** Object:  StoredProcedure [dbo].[DeleteJuego]    Script Date: 19/12/2014 01:10:21 a. m. ******/
+/****** Object:  StoredProcedure [dbo].[DeleteJuego]    Script Date: 21/12/2014 12:27:20 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -32,8 +38,9 @@ BEGIN
 	UPDATE Juego set bActivo = 0 WHERE IDJuego = @IDJuego
 END
 
+
 GO
-/****** Object:  StoredProcedure [dbo].[InsertAmigo]    Script Date: 19/12/2014 01:10:21 a. m. ******/
+/****** Object:  StoredProcedure [dbo].[InsertAmigo]    Script Date: 21/12/2014 12:27:20 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -59,8 +66,9 @@ BEGIN
 	END
 END
 
+
 GO
-/****** Object:  StoredProcedure [dbo].[InsertCanica]    Script Date: 19/12/2014 01:10:21 a. m. ******/
+/****** Object:  StoredProcedure [dbo].[InsertCanica]    Script Date: 21/12/2014 12:27:20 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -97,8 +105,9 @@ BEGIN
 
 END
 
+
 GO
-/****** Object:  StoredProcedure [dbo].[InsertJuego]    Script Date: 19/12/2014 01:10:21 a. m. ******/
+/****** Object:  StoredProcedure [dbo].[InsertJuego]    Script Date: 21/12/2014 12:27:20 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -142,8 +151,76 @@ BEGIN
 
 END
 
+
 GO
-/****** Object:  StoredProcedure [dbo].[InsertUpdateUsuarios]    Script Date: 19/12/2014 01:10:21 a. m. ******/
+/****** Object:  StoredProcedure [dbo].[InsertUpdateScore]    Script Date: 21/12/2014 12:27:20 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [dbo].[InsertUpdateScore] 
+	@IDUsuario	int
+	,@IDJuego	int
+	,@fScore	float
+	,@fTiempo	float
+AS
+BEGIN
+
+	DECLARE @OldScore float
+	DECLARE @OldTiempo float
+
+	IF (SELECT COUNT(IDScore) FROM Score WHERE IDUsuario = @IDUsuario AND IDJuego = @IDJuego) > 0
+	BEGIN
+
+		SET @OldScore = (SELECT ISNULL(fScore,-1.0) AS fScore FROM Score WHERE IDUsuario = @IDUsuario AND IDJuego = @IDJuego)
+		SET @OldTiempo = (SELECT ISNULL(fTiempo,-1.0) AS fTiempo  FROM Score WHERE IDUsuario = @IDUsuario AND IDJuego = @IDJuego)
+
+	END
+	ELSE
+	BEGIN
+		SET @OldScore = -1
+		SET @OldTiempo = -1
+	END
+
+	IF @OldScore < 0
+	BEGIN
+		INSERT INTO [dbo].[Score]
+				   ([IDUsuario]
+				   ,[IDJuego]
+				   ,[fScore]
+				   ,[fTiempo])
+			 VALUES
+				   (@IDUsuario	
+				   ,@IDJuego	
+				   ,@fScore
+				   ,@fTiempo)
+	END
+	ELSE
+	BEGIN
+		IF @fScore < @OldScore
+			SET @fScore = @OldScore
+		
+		IF @fTiempo < @OldTiempo
+			SET @fTiempo = @OldTiempo
+		
+		
+		BEGIN
+			UPDATE [dbo].[Score]
+			   SET [fScore]		= @fScore	
+				  ,[fTiempo]	= @fTiempo	
+				  ,[dFecha]		= GETDATE()		
+			 WHERE [IDUsuario]	= @IDUsuario AND [IDJuego]	= @IDJuego	
+		END
+	END
+END
+
+GO
+/****** Object:  StoredProcedure [dbo].[InsertUpdateUsuarios]    Script Date: 21/12/2014 12:27:20 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -210,8 +287,41 @@ BEGIN
 	
 END
 
+
 GO
-/****** Object:  StoredProcedure [dbo].[SelectJuegoXIDJuego]    Script Date: 19/12/2014 01:10:21 a. m. ******/
+/****** Object:  StoredProcedure [dbo].[SelectBuscaUsuarioXEMail]    Script Date: 21/12/2014 12:27:20 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [dbo].[SelectBuscaUsuarioXEMail] 
+	@EMail nvarchar(500)
+AS
+BEGIN
+	
+	DECLARE @IDUsuario int
+	DECLARE @sAlias nvarchar(50)
+
+	SELECT @IDusuario = IDUsuario,@sAlias = sAlias FROM Usuarios WHERE EMail = @EMail
+
+	IF ISNULL(@IDUsuario,-1) = -1
+	BEGIN
+		SELECT -1 as IDUsuario, 'Usuario no encontrado.' as sAlias
+	END
+	ELSE
+	BEGIN
+		SELECT @IDUsuario as IDUsuario, @sAlias as sAlias
+	END
+
+END
+
+GO
+/****** Object:  StoredProcedure [dbo].[SelectJuegoXIDJuego]    Script Date: 21/12/2014 12:27:20 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -235,8 +345,9 @@ BEGIN
 	WHERE IDJuego = @IDJuego
 END
 
+
 GO
-/****** Object:  StoredProcedure [dbo].[SelectLstCanicasXIDJuego]    Script Date: 19/12/2014 01:10:21 a. m. ******/
+/****** Object:  StoredProcedure [dbo].[SelectLstCanicasXIDJuego]    Script Date: 21/12/2014 12:27:20 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -262,8 +373,9 @@ BEGIN
 
 END
 
+
 GO
-/****** Object:  StoredProcedure [dbo].[SelectLstCatalogoCanica]    Script Date: 19/12/2014 01:10:21 a. m. ******/
+/****** Object:  StoredProcedure [dbo].[SelectLstCatalogoCanica]    Script Date: 21/12/2014 12:27:20 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -284,8 +396,9 @@ BEGIN
 	  FROM [dbo].[CatalogoCanica]
 END
 
+
 GO
-/****** Object:  StoredProcedure [dbo].[SelectLstCatalogoEscenarios]    Script Date: 19/12/2014 01:10:21 a. m. ******/
+/****** Object:  StoredProcedure [dbo].[SelectLstCatalogoEscenarios]    Script Date: 21/12/2014 12:27:20 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -306,8 +419,9 @@ BEGIN
 	ORDER BY sNombre
 END
 
+
 GO
-/****** Object:  StoredProcedure [dbo].[SelectLstCatalogoTamanio]    Script Date: 19/12/2014 01:10:21 a. m. ******/
+/****** Object:  StoredProcedure [dbo].[SelectLstCatalogoTamanio]    Script Date: 21/12/2014 12:27:20 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -326,8 +440,9 @@ BEGIN
 	  FROM [dbo].[CatalogoTamanio]
 END
 
+
 GO
-/****** Object:  StoredProcedure [dbo].[SelectLstJuegosXsAlias]    Script Date: 19/12/2014 01:10:21 a. m. ******/
+/****** Object:  StoredProcedure [dbo].[SelectLstJuegosXsAlias]    Script Date: 21/12/2014 12:27:20 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -353,8 +468,129 @@ BEGIN
 	  ORDER BY sNombre
 END
 
+
 GO
-/****** Object:  StoredProcedure [dbo].[UsuarioLogin]    Script Date: 19/12/2014 01:10:21 a. m. ******/
+/****** Object:  StoredProcedure [dbo].[SelectScoreTop10]    Script Date: 21/12/2014 12:27:20 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [dbo].[SelectScoreTop10]
+AS
+BEGIN
+	SELECT TOP 10 [IDScore]
+		  ,S.[IDJuego]
+		  ,J.sNombre AS Juego
+		  ,CE.IDCatalogoEscenario
+		  ,CE.sNombre AS Escenario
+		  ,U.IDUsuario
+		  ,U.sAlias AS sUsuario
+		  ,[fScore]
+		  ,[fTiempo]
+		  ,S.[dFecha]
+	  FROM [dbo].[Score] S
+	  INNER JOIN Juego J ON J.IDUsuario = S.IDUsuario AND J.IDJuego = S.IDJuego
+	  INNER JOIN CatalogoEscenario CE ON CE.IDCatalogoEscenario = J.IDCatalogoEscenario
+	  INNER JOIN Usuarios U ON U.IDUsuario = S.IDUsuario
+	ORDER BY fScore DESC
+END
+
+
+GO
+/****** Object:  StoredProcedure [dbo].[SelectScoreTop10XIDJuego]    Script Date: 21/12/2014 12:27:20 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [dbo].[SelectScoreTop10XIDJuego] 
+	@IDJuego int
+AS
+BEGIN
+
+	SELECT TOP 10 [IDScore]
+		  ,S.[IDJuego]
+		  ,J.sNombre AS Juego
+		  ,CE.IDCatalogoEscenario
+		  ,CE.sNombre AS Escenario
+		  ,U.IDUsuario
+		  ,U.sAlias AS sJugador
+		  ,[fScore]
+		  ,[fTiempo]
+		  ,S.[dFecha]
+	  FROM [dbo].[Score] S
+	  INNER JOIN Juego J ON J.IDUsuario = S.IDUsuario AND J.IDJuego = S.IDJuego
+	  INNER JOIN CatalogoEscenario CE ON CE.IDCatalogoEscenario = J.IDCatalogoEscenario
+	  INNER JOIN Usuarios U ON U.IDUsuario = S.IDUsuario
+	WHERE S.IDJuego = @IDJuego 
+	ORDER BY fScore DESC
+
+END
+
+GO
+/****** Object:  StoredProcedure [dbo].[SelectScoreTop10XIDUsuario]    Script Date: 21/12/2014 12:27:20 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [dbo].[SelectScoreTop10XIDUsuario]
+	@IDUsuario int
+AS
+BEGIN
+	SELECT TOP 10 [IDScore]
+		  ,S.[IDJuego]
+		  ,J.sNombre AS Juego
+		  ,CE.IDCatalogoEscenario
+		  ,CE.sNombre AS Escenario
+		  ,[fScore]
+		  ,[fTiempo]
+		  ,S.[dFecha]
+	  FROM [dbo].[Score] S
+	  INNER JOIN Juego J ON J.IDUsuario = S.IDUsuario AND J.IDJuego = S.IDJuego
+	  INNER JOIN CatalogoEscenario CE ON CE.IDCatalogoEscenario = J.IDCatalogoEscenario
+	WHERE S.IDUsuario = @IDUsuario 
+	ORDER BY fScore DESC
+END
+
+
+GO
+/****** Object:  StoredProcedure [dbo].[SelectScoreXIDUsuarioYIDJuego]    Script Date: 21/12/2014 12:27:20 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[SelectScoreXIDUsuarioYIDJuego]
+	@IDUsuario int
+	,@IDJuego int
+AS
+BEGIN
+
+	SELECT [IDScore]
+		  ,[fScore]
+		  ,[fTiempo]
+		  ,[dFecha]
+	  FROM [dbo].[Score]
+	WHERE IDUsuario = @IDUsuario 
+		  AND IDJuego = @IDJuego
+
+END
+
+GO
+/****** Object:  StoredProcedure [dbo].[UsuarioLogin]    Script Date: 21/12/2014 12:27:20 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -385,8 +621,9 @@ BEGIN
 	SELECT @IDUsuarioR AS  IDUsuario,@EMailR AS EMail,@sAliasR AS sAlias
 END
 
+
 GO
-/****** Object:  UserDefinedFunction [dbo].[fn_getVarCharMD5]    Script Date: 19/12/2014 01:10:21 a. m. ******/
+/****** Object:  UserDefinedFunction [dbo].[fn_getVarCharMD5]    Script Date: 21/12/2014 12:27:20 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -414,8 +651,9 @@ END
 
 
 
+
 GO
-/****** Object:  Table [dbo].[Amigos]    Script Date: 19/12/2014 01:10:21 a. m. ******/
+/****** Object:  Table [dbo].[Amigos]    Script Date: 21/12/2014 12:27:20 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -426,7 +664,7 @@ CREATE TABLE [dbo].[Amigos](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[Canica]    Script Date: 19/12/2014 01:10:21 a. m. ******/
+/****** Object:  Table [dbo].[Canica]    Script Date: 21/12/2014 12:27:20 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -441,7 +679,7 @@ CREATE TABLE [dbo].[Canica](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[CatalogoCanica]    Script Date: 19/12/2014 01:10:21 a. m. ******/
+/****** Object:  Table [dbo].[CatalogoCanica]    Script Date: 21/12/2014 12:27:20 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -459,7 +697,7 @@ CREATE TABLE [dbo].[CatalogoCanica](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[CatalogoEscenario]    Script Date: 19/12/2014 01:10:21 a. m. ******/
+/****** Object:  Table [dbo].[CatalogoEscenario]    Script Date: 21/12/2014 12:27:20 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -476,7 +714,7 @@ CREATE TABLE [dbo].[CatalogoEscenario](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[CatalogoTamanio]    Script Date: 19/12/2014 01:10:21 a. m. ******/
+/****** Object:  Table [dbo].[CatalogoTamanio]    Script Date: 21/12/2014 12:27:20 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -492,7 +730,7 @@ CREATE TABLE [dbo].[CatalogoTamanio](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[Juego]    Script Date: 19/12/2014 01:10:21 a. m. ******/
+/****** Object:  Table [dbo].[Juego]    Script Date: 21/12/2014 12:27:20 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -511,7 +749,26 @@ CREATE TABLE [dbo].[Juego](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[Usuarios]    Script Date: 19/12/2014 01:10:21 a. m. ******/
+/****** Object:  Table [dbo].[Score]    Script Date: 21/12/2014 12:27:20 p. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Score](
+	[IDScore] [int] IDENTITY(1,1) NOT NULL,
+	[IDUsuario] [int] NOT NULL,
+	[IDJuego] [int] NOT NULL,
+	[fScore] [float] NOT NULL,
+	[fTiempo] [float] NOT NULL,
+	[dFecha] [datetime] NOT NULL,
+ CONSTRAINT [PK_Score] PRIMARY KEY CLUSTERED 
+(
+	[IDScore] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Usuarios]    Script Date: 21/12/2014 12:27:20 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -555,6 +812,11 @@ SET IDENTITY_INSERT [dbo].[Juego] ON
 INSERT [dbo].[Juego] ([IDJuego], [IDUsuario], [IDCatalogoEscenario], [sNombre], [dFecha], [bActivo]) VALUES (1, 1, 1, N'PRIMER JUEGO', CAST(0x0000A40300D2665A AS DateTime), 1)
 INSERT [dbo].[Juego] ([IDJuego], [IDUsuario], [IDCatalogoEscenario], [sNombre], [dFecha], [bActivo]) VALUES (2, 1, 1, N'SEGUNDO JUEGO', CAST(0x0000A40300D293EB AS DateTime), 0)
 SET IDENTITY_INSERT [dbo].[Juego] OFF
+SET IDENTITY_INSERT [dbo].[Score] ON 
+
+INSERT [dbo].[Score] ([IDScore], [IDUsuario], [IDJuego], [fScore], [fTiempo], [dFecha]) VALUES (1, 1, 1, 1.021, 2.03, CAST(0x0000A4080011B051 AS DateTime))
+INSERT [dbo].[Score] ([IDScore], [IDUsuario], [IDJuego], [fScore], [fTiempo], [dFecha]) VALUES (2, 1, 2, 11.01, 22.02, CAST(0x0000A4080017835C AS DateTime))
+SET IDENTITY_INSERT [dbo].[Score] OFF
 SET IDENTITY_INSERT [dbo].[Usuarios] ON 
 
 INSERT [dbo].[Usuarios] ([IDUsuario], [EMail], [sAlias], [sPass], [bActivo]) VALUES (1, N'soporte@lulamb.com', N'Astucia', N'81DC9BDB52D04DC20036DBD8313ED055', 1)
@@ -574,6 +836,8 @@ GO
 ALTER TABLE [dbo].[Juego] ADD  CONSTRAINT [DF_Juego_dFecha]  DEFAULT (getdate()) FOR [dFecha]
 GO
 ALTER TABLE [dbo].[Juego] ADD  CONSTRAINT [DF_Juego_bActivo]  DEFAULT ((1)) FOR [bActivo]
+GO
+ALTER TABLE [dbo].[Score] ADD  CONSTRAINT [DF_Score_dFecha]  DEFAULT (getdate()) FOR [dFecha]
 GO
 ALTER TABLE [dbo].[Usuarios] ADD  CONSTRAINT [DF_Usuarios_bActivo]  DEFAULT ((1)) FOR [bActivo]
 GO
