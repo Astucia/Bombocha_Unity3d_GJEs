@@ -15,10 +15,10 @@ RenderSettings:
   m_Fog: 1
   m_FogColor: {r: .610294104, g: .887119651, b: 1, a: 1}
   m_FogMode: 3
-  m_FogDensity: .0350000001
+  m_FogDensity: .0299999993
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientLight: {r: .25, g: .247667328, b: .165441185, a: 1}
+  m_AmbientLight: {r: .25, g: .237170368, b: .165441185, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: 842d6ecc6e00d7349aa497f7cb9595ed, type: 2}
   m_HaloStrength: .5
   m_FlareStrength: 1
@@ -443,6 +443,7 @@ GameObject:
   - 135: {fileID: 407493531}
   - 23: {fileID: 407493530}
   - 54: {fileID: 407493529}
+  - 114: {fileID: 407493534}
   m_Layer: 8
   m_Name: Sphere
   m_TagString: Untagged
@@ -516,6 +517,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 13
+--- !u!114 &407493534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 407493528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6c9dca32a54e7445a0ba1d6f658664b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraPlayer: {fileID: 1025534826}
 --- !u!1 &411544126
 GameObject:
   m_ObjectHideFlags: 0
@@ -699,6 +712,7 @@ GameObject:
   - 135: {fileID: 593708660}
   - 23: {fileID: 593708659}
   - 54: {fileID: 593708658}
+  - 114: {fileID: 593708663}
   m_Layer: 8
   m_Name: Sphere
   m_TagString: Untagged
@@ -772,6 +786,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 14
+--- !u!114 &593708663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 593708657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6c9dca32a54e7445a0ba1d6f658664b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraPlayer: {fileID: 1025534826}
 --- !u!1 &630522041
 GameObject:
   m_ObjectHideFlags: 0
@@ -912,6 +938,7 @@ GameObject:
   - 135: {fileID: 727324315}
   - 23: {fileID: 727324314}
   - 54: {fileID: 727324313}
+  - 114: {fileID: 727324318}
   m_Layer: 8
   m_Name: Sphere
   m_TagString: Untagged
@@ -985,6 +1012,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 11
+--- !u!114 &727324318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 727324312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6c9dca32a54e7445a0ba1d6f658664b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraPlayer: {fileID: 1025534826}
 --- !u!1 &737287947
 GameObject:
   m_ObjectHideFlags: 0
@@ -1099,6 +1138,33 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.43252146, y: 1.66533613, z: .857684851}
   m_Center: {x: .0515493155, y: .332668066, z: -.0473638661}
+--- !u!1 &814418885
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 814418886}
+  m_Layer: 0
+  m_Name: GameMaster
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &814418886
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 814418885}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5, y: -.5, z: 5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 25
 --- !u!1 &818373063
 GameObject:
   m_ObjectHideFlags: 0
@@ -1388,7 +1454,7 @@ Transform:
   m_GameObject: {fileID: 902286077}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.8499999, y: -.589999974, z: 3.99000001}
-  m_LocalScale: {x: 19.3600006, y: 1.2099998, z: 19.3599968}
+  m_LocalScale: {x: 57.1840515, y: 3.57400107, z: 57.1840172}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -2068,15 +2134,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 780611a67e8e941a2b3aa96e5915a793, type: 2}
       propertyPath: m_LocalScale.x
-      value: 19.3600006
+      value: 57.1840515
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 780611a67e8e941a2b3aa96e5915a793, type: 2}
       propertyPath: m_LocalScale.y
-      value: 1.2099998
+      value: 3.57400107
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 780611a67e8e941a2b3aa96e5915a793, type: 2}
       propertyPath: m_LocalScale.z
-      value: 19.3599968
+      value: 57.1840172
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 780611a67e8e941a2b3aa96e5915a793, type: 2}
@@ -2153,6 +2219,7 @@ GameObject:
   - 135: {fileID: 1852305079}
   - 23: {fileID: 1852305078}
   - 54: {fileID: 1852305077}
+  - 114: {fileID: 1852305082}
   m_Layer: 8
   m_Name: Sphere
   m_TagString: Untagged
@@ -2226,6 +2293,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 12
+--- !u!114 &1852305082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1852305076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6c9dca32a54e7445a0ba1d6f658664b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraPlayer: {fileID: 1025534826}
 --- !u!1 &1914565587
 GameObject:
   m_ObjectHideFlags: 0
@@ -2414,6 +2493,7 @@ GameObject:
   - 135: {fileID: 2077514145}
   - 23: {fileID: 2077514144}
   - 54: {fileID: 2077514148}
+  - 114: {fileID: 2077514149}
   m_Layer: 8
   m_Name: Sphere
   m_TagString: Untagged
@@ -2487,6 +2567,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2077514149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2077514143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6c9dca32a54e7445a0ba1d6f658664b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraPlayer: {fileID: 1025534826}
 --- !u!1001 &2104922419
 Prefab:
   m_ObjectHideFlags: 0
