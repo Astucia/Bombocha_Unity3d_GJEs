@@ -1,11 +1,4 @@
-﻿/*
-// Camera Controller (Parts and pieces from everywhere)
-// Walker Boys (www.walkerboystudio.com)
-// November 28, 2011
-// Description: Controls basic movement of camera
-// Instruction: Assign script to any camera and complete inspector options 
-*/
-
+﻿
 var target 						: Transform;							// target for camera to look at
 var targetHeight 				: float 		= 1.0;					// height of target
 var collisionLayers   			: LayerMask	 	= -1;					// collision layers for camera

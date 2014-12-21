@@ -9,7 +9,6 @@ public class Shoot : MonoBehaviour {
 
 	void FixedUpdate(){
 		if(Input.GetButtonDown("Jump") && !isMoving){
-			//Instantiate(objects[Random.Range(0, objects.Length)], transform.position, Quaternion.identity);
 			isMoving = true;
 			ball.rigidbody.AddForce(transform.parent.forward * force);
 			ball.transform.parent = null;
