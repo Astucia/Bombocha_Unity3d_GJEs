@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="BombochaGJEs" Class="BombochaGJEsDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=DIANA\SQLEXPRESS2012;Initial Catalog=BombochaGJEs;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="BombochaGJEsConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="WebSettings" ConnectionString="Data Source=LUCI\SQLEXPRESS;Initial Catalog=BombochaGJEs;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="BombochaGJEsConnectionString" Provider="System.Data.SqlClient" />
   <Function Name="dbo.SelectLstCatalogoTamanio" Method="SelectLstCatalogoTamanio">
     <ElementType Name="SelectLstCatalogoTamanioResult">
       <Column Name="IDCatalogoTamanio" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -111,6 +111,72 @@
       <Column Name="sNombre" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="sDescripcion" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
       <Column Name="bActiva" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SelectBuscaUsuarioXEMail" Method="SelectBuscaUsuarioXEMail">
+    <Parameter Name="EMail" Parameter="eMail" Type="System.String" DbType="NVarChar(500)" />
+    <ElementType Name="SelectBuscaUsuarioXEMailResult">
+      <Column Name="IDUsuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sAlias" Type="System.String" DbType="VarChar(22) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.InsertUpdateScore" Method="InsertUpdateScore">
+    <Parameter Name="IDUsuario" Parameter="iDUsuario" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IDJuego" Parameter="iDJuego" Type="System.Int32" DbType="Int" />
+    <Parameter Name="fScore" Type="System.Double" DbType="Float" />
+    <Parameter Name="fTiempo" Type="System.Double" DbType="Float" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SelectScoreXIDUsuarioYIDJuego" Method="SelectScoreXIDUsuarioYIDJuego">
+    <Parameter Name="IDUsuario" Parameter="iDUsuario" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IDJuego" Parameter="iDJuego" Type="System.Int32" DbType="Int" />
+    <ElementType Name="SelectScoreXIDUsuarioYIDJuegoResult">
+      <Column Name="IDScore" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="fScore" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="fTiempo" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="dFecha" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SelectScoreTop10XIDUsuario" Method="SelectScoreTop10XIDUsuario">
+    <Parameter Name="IDUsuario" Parameter="iDUsuario" Type="System.Int32" DbType="Int" />
+    <ElementType Name="SelectScoreTop10XIDUsuarioResult">
+      <Column Name="IDScore" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IDJuego" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Juego" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IDCatalogoEscenario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Escenario" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="fScore" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="fTiempo" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="dFecha" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SelectScoreTop10" Method="SelectScoreTop10">
+    <ElementType Name="SelectScoreTop10Result">
+      <Column Name="IDScore" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IDJuego" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Juego" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IDCatalogoEscenario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Escenario" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IDUsuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sUsuario" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="fScore" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="fTiempo" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="dFecha" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SelectScoreTop10XIDJuego" Method="SelectScoreTop10XIDJuego">
+    <Parameter Name="IDJuego" Parameter="iDJuego" Type="System.Int32" DbType="Int" />
+    <ElementType Name="SelectScoreTop10XIDJuegoResult">
+      <Column Name="IDScore" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IDJuego" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Juego" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IDCatalogoEscenario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Escenario" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IDUsuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="sJugador" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="fScore" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="fTiempo" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="dFecha" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
 </Database>

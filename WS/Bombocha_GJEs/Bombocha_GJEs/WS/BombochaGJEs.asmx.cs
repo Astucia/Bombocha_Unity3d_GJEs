@@ -114,6 +114,22 @@ namespace Bombocha_GJEs.WS
         #region JSON
         [WebMethod]
         [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json)]
+        public void InsertUpdateScoreJSON(int iDUsuario, int iDJuego, double fScore, double fTiempo)
+        {
+            DC.InsertUpdateScore(iDUsuario, iDJuego, fScore, fTiempo);
+
+            string Response = JsonConvert.SerializeObject("OK");
+            Context.Response.Clear();
+            Context.Response.ContentType = "text/json; charset=UTF-8";
+            Context.Response.AddHeader("content-length", Response.Length.ToString());
+            Context.Response.Flush();
+
+            Context.Response.Write(Response);
+        }
+
+
+        [WebMethod]
+        [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json)]
         public void InsertUpdateUsuariosJSON(string eMail, string sAlias, string sPass, string sConfirm)
         {
             List<InsertUpdateUsuariosResult> LstUsuarios = DC.InsertUpdateUsuarios(eMail, sAlias, sPass, sConfirm, true).ToList();
@@ -181,6 +197,13 @@ namespace Bombocha_GJEs.WS
         #region LINQ
 
         [WebMethod]
+        public string InsertUpdateScore(int iDUsuario, int iDJuego, double fScore, double fTiempo)
+        {
+            DC.InsertUpdateScore(iDUsuario, iDJuego, fScore, fTiempo);
+            return "OK";
+        }
+
+        [WebMethod]
         public List<InsertUpdateUsuariosResult> InsertUpdateUsuarios(string eMail, string sAlias, string sPass, string sConfirm)
         {
             List<InsertUpdateUsuariosResult> LstUsuarios = DC.InsertUpdateUsuarios(eMail, sAlias, sPass, sConfirm, true).ToList();
@@ -215,6 +238,76 @@ namespace Bombocha_GJEs.WS
         #region Select
 
         #region JSON
+        [WebMethod]
+        [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json)]
+        public void SelectScoreXIDUsuarioYIDJuegoJSON(int iDUsuario, int iDJuego)
+        {
+            List<SelectScoreXIDUsuarioYIDJuegoResult> LstScore = DC.SelectScoreXIDUsuarioYIDJuego(iDUsuario, iDJuego).ToList();
+            string Response = JsonConvert.SerializeObject(LstScore);
+            Context.Response.Clear();
+            Context.Response.ContentType = "text/json; charset=UTF-8";
+            Context.Response.AddHeader("content-length", Response.Length.ToString());
+            Context.Response.Flush();
+
+            Context.Response.Write(Response);
+        }
+
+        [WebMethod]
+        [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json)]
+        public void SelectScoreTop10XIDUsuarioJSON(int iDUsuario)
+        {
+            List<SelectScoreTop10XIDUsuarioResult> LstScore = DC.SelectScoreTop10XIDUsuario(iDUsuario).ToList();
+            string Response = JsonConvert.SerializeObject(LstScore);
+            Context.Response.Clear();
+            Context.Response.ContentType = "text/json; charset=UTF-8";
+            Context.Response.AddHeader("content-length", Response.Length.ToString());
+            Context.Response.Flush();
+
+            Context.Response.Write(Response);
+        }
+
+        [WebMethod]
+        [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json)]
+        public void SelectScoreTop10XIDJuegoJSON(int iDJuego)
+        {
+            List<SelectScoreTop10XIDJuegoResult> LstScore = DC.SelectScoreTop10XIDJuego(iDJuego).ToList();
+            string Response = JsonConvert.SerializeObject(LstScore);
+            Context.Response.Clear();
+            Context.Response.ContentType = "text/json; charset=UTF-8";
+            Context.Response.AddHeader("content-length", Response.Length.ToString());
+            Context.Response.Flush();
+
+            Context.Response.Write(Response);
+        }
+
+        [WebMethod]
+        [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json)]
+        public void SelectScoreTop10JSON()
+        {
+            List<SelectScoreTop10Result> LstScore = DC.SelectScoreTop10().ToList();
+            string Response = JsonConvert.SerializeObject(LstScore);
+            Context.Response.Clear();
+            Context.Response.ContentType = "text/json; charset=UTF-8";
+            Context.Response.AddHeader("content-length", Response.Length.ToString());
+            Context.Response.Flush();
+
+            Context.Response.Write(Response);
+        }
+
+        [WebMethod]
+        [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json)]
+        public void SelectBuscaUsuarioXEMailJSON(string eMail)
+        {
+            List<SelectBuscaUsuarioXEMailResult> LstUsuarios = DC.SelectBuscaUsuarioXEMail(eMail).ToList();
+            string Response = JsonConvert.SerializeObject(LstUsuarios);
+            Context.Response.Clear();
+            Context.Response.ContentType = "text/json; charset=UTF-8";
+            Context.Response.AddHeader("content-length", Response.Length.ToString());
+            Context.Response.Flush();
+
+            Context.Response.Write(Response);
+
+        }
 
         [WebMethod]
         [ScriptMethod(UseHttpGet = true, ResponseFormat = ResponseFormat.Json)]
@@ -303,6 +396,41 @@ namespace Bombocha_GJEs.WS
         #endregion
 
         #region LINQ
+
+        [WebMethod]
+        public List<SelectScoreXIDUsuarioYIDJuegoResult> SelectScoreXIDUsuarioYIDJuego(int iDUsuario,int iDJuego)
+        {
+            List<SelectScoreXIDUsuarioYIDJuegoResult> LstScore = DC.SelectScoreXIDUsuarioYIDJuego(iDUsuario,iDJuego).ToList();
+            return LstScore;
+        }
+
+        [WebMethod]
+        public List<SelectScoreTop10XIDUsuarioResult> SelectScoreTop10XIDUsuario(int iDUsuario)
+        {
+            List<SelectScoreTop10XIDUsuarioResult> LstScore = DC.SelectScoreTop10XIDUsuario(iDUsuario).ToList();
+            return LstScore;
+        }
+
+        [WebMethod]
+        public List<SelectScoreTop10XIDJuegoResult> SelectScoreTop10XIDJuego(int iDJuego)
+        {
+            List<SelectScoreTop10XIDJuegoResult> LstScore = DC.SelectScoreTop10XIDJuego(iDJuego).ToList();
+            return LstScore;
+        }
+
+        [WebMethod]
+        public List<SelectScoreTop10Result> SelectScoreTop10()
+        {
+            List<SelectScoreTop10Result> LstScore = DC.SelectScoreTop10().ToList();
+            return LstScore;
+        }
+
+        [WebMethod]
+        public List<SelectBuscaUsuarioXEMailResult> SelectBuscaUsuarioXEMail(string eMail)
+        {
+            List<SelectBuscaUsuarioXEMailResult> LstUsuarios = DC.SelectBuscaUsuarioXEMail(eMail).ToList();
+            return LstUsuarios;
+        }
 
         [WebMethod]
         public List<SelectJuegoXIDJuegoResult> SelectJuegoXIDJuego(int iDJuego)

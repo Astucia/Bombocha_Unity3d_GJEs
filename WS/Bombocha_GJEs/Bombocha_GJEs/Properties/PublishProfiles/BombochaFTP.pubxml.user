@@ -6,35 +6,35 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>C:\Users\Astuucia\Documents\GitHub\Bombocha_Unity3d_GJEs\WS\PUBLISH</_PublishTargetUrl>
+    <_PublishTargetUrl>C:\Users\Héctor\Documents\GitHub\Bombocha_Unity3d_GJEs\WS\PUBLISH</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/Bombocha_GJEs.dll">
-      <publishTime>12/18/2014 23:43:20</publishTime>
+      <publishTime>12/21/2014 01:52:00</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
-      <publishTime>12/15/2014 16:25:36</publishTime>
+      <publishTime>12/20/2014 00:22:56</publishTime>
     </File>
     <File Include="BombochaGJEs.dbml">
-      <publishTime>12/18/2014 23:41:22</publishTime>
+      <publishTime>12/21/2014 01:45:07</publishTime>
     </File>
     <File Include="BombochaGJEs.xsc">
-      <publishTime>12/16/2014 10:46:23</publishTime>
+      <publishTime>12/20/2014 00:22:54</publishTime>
     </File>
     <File Include="BombochaGJEs.xss">
-      <publishTime>12/16/2014 10:46:23</publishTime>
+      <publishTime>12/20/2014 00:22:54</publishTime>
     </File>
     <File Include="crossdomain.xml">
-      <publishTime>12/18/2014 17:24:18</publishTime>
+      <publishTime>12/20/2014 00:22:54</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>12/15/2014 16:25:41</publishTime>
+      <publishTime>12/20/2014 00:22:55</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>12/17/2014 23:39:50</publishTime>
+      <publishTime>12/20/2014 01:32:40</publishTime>
     </File>
     <File Include="WS/BombochaGJEs.asmx">
-      <publishTime>12/16/2014 10:17:52</publishTime>
+      <publishTime>12/20/2014 00:22:54</publishTime>
     </File>
   </ItemGroup>
 </Project>

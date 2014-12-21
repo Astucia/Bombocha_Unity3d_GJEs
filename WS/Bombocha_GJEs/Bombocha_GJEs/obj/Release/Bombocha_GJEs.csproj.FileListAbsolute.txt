@@ -5,3 +5,10 @@ C:\Users\Astuucia\Documents\GitHub\Bombocha_Unity3d_GJEs\WS\Bombocha_GJEs\Bomboc
 C:\Users\Astuucia\Documents\GitHub\Bombocha_Unity3d_GJEs\WS\Bombocha_GJEs\Bombocha_GJEs\obj\Release\Bombocha_GJEs.csprojResolveAssemblyReference.cache
 C:\Users\Astuucia\Documents\GitHub\Bombocha_Unity3d_GJEs\WS\Bombocha_GJEs\Bombocha_GJEs\obj\Release\Bombocha_GJEs.dll
 C:\Users\Astuucia\Documents\GitHub\Bombocha_Unity3d_GJEs\WS\Bombocha_GJEs\Bombocha_GJEs\obj\Release\Bombocha_GJEs.pdb
+C:\Users\Héctor\Documents\GitHub\Bombocha_Unity3d_GJEs\WS\Bombocha_GJEs\Bombocha_GJEs\bin\Bombocha_GJEs.dll
+C:\Users\Héctor\Documents\GitHub\Bombocha_Unity3d_GJEs\WS\Bombocha_GJEs\Bombocha_GJEs\bin\Bombocha_GJEs.pdb
+C:\Users\Héctor\Documents\GitHub\Bombocha_Unity3d_GJEs\WS\Bombocha_GJEs\Bombocha_GJEs\bin\Newtonsoft.Json.dll
+C:\Users\Héctor\Documents\GitHub\Bombocha_Unity3d_GJEs\WS\Bombocha_GJEs\Bombocha_GJEs\bin\Newtonsoft.Json.xml
+C:\Users\Héctor\Documents\GitHub\Bombocha_Unity3d_GJEs\WS\Bombocha_GJEs\Bombocha_GJEs\obj\Release\Bombocha_GJEs.csprojResolveAssemblyReference.cache
+C:\Users\Héctor\Documents\GitHub\Bombocha_Unity3d_GJEs\WS\Bombocha_GJEs\Bombocha_GJEs\obj\Release\Bombocha_GJEs.dll
+C:\Users\Héctor\Documents\GitHub\Bombocha_Unity3d_GJEs\WS\Bombocha_GJEs\Bombocha_GJEs\obj\Release\Bombocha_GJEs.pdb
