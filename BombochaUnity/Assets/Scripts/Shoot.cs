@@ -9,10 +9,13 @@ public class Shoot : MonoBehaviour {
 	public GameObject gameMaster;
 	private GameMasterScript gameMasterScript;
 	private bool isMoving = false;
+	public GameObject destroyer;
+	private DestroyerScript destroyerScript;
 
 	void Start(){
 		ballSelected = 0;
 		gameMasterScript = gameMaster.GetComponent<GameMasterScript>();
+		destroyerScript = destroyer.GetComponent<DestroyerScript>();
 	}
 
 
@@ -31,6 +34,11 @@ public class Shoot : MonoBehaviour {
 
 	public void newMove(){
 		ballSelected++;
+
+		if(ballSelected == 4){
+			destroyerScript.gameOver();
+		}
+
 		isMoving = false;
 		for(int i =0; i< balls.Length; i++){
 			if(i == ballSelected){
