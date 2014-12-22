@@ -1,13 +1,15 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GameMasterScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\mainMenu.js">
     <Files>
       <File FileName="Assets\Scripts\GameMasterScript.cs" Line="23" Column="52" />
       <File FileName="Assets\Scripts\Reset.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\DragAndDrop.cs" Line="21" Column="17" />
-      <File FileName="Assets\Scripts\Shoot.cs" Line="28" Column="39" />
-      <File FileName="Assets\Scripts\DestroyerScript.cs" Line="41" Column="52" />
-      <File FileName="Assets\Scripts\GameOverScreenScript.cs" Line="18" Column="13" />
+      <File FileName="Assets\Scripts\DragAndDrop.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Shoot.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\DestroyerScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\GameOverScreenScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\GoBackCredits.cs" Line="16" Column="13" />
+      <File FileName="Assets\Scripts\mainMenu.js" Line="25" Column="41" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

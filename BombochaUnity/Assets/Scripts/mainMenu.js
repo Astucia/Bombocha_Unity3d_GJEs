@@ -22,6 +22,6 @@ function OnGUI(){
         Application.LoadLevel ("Prototype");
     }
     if (GUI.Button (Rect (Screen.width/2-85,Screen.height/2+50,170,40), "Creditos")) {
-        Application.LoadLevel ("Prototype");
+        Application.LoadLevel ("creditos");
     }
 }
