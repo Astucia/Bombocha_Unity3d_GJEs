@@ -20,7 +20,7 @@ public class GameMasterScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		leftTime = maxTime - (int)Time.time;
+		leftTime = maxTime - (int)Time.timeSinceLevelLoad;
 		timeText.text = leftTime + "";
 
 	}

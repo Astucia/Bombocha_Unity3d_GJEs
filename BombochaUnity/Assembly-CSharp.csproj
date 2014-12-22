@@ -50,6 +50,7 @@
      <Compile Include="Assets\Scripts\DragAndDrop.cs" />
      <Compile Include="Assets\Scripts\GameMasterScript.cs" />
      <Compile Include="Assets\Scripts\GameOverScreenScript.cs" />
+     <Compile Include="Assets\Scripts\GoBackCredits.cs" />
      <Compile Include="Assets\Scripts\MenuMusik.cs" />
      <Compile Include="Assets\Scripts\Reset.cs" />
      <Compile Include="Assets\Scripts\Shoot.cs" />

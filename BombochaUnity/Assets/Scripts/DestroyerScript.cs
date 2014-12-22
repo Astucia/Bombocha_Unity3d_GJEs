@@ -20,7 +20,7 @@ public class DestroyerScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Time.time > maxTime){
+		if(Time.timeSinceLevelLoad > maxTime){
 			gameOver();
 		}
 	}
@@ -38,7 +38,7 @@ public class DestroyerScript : MonoBehaviour {
 	}
 
 	public void gameOver(){
-		leftTime = maxTime - (int)Time.time;
+		leftTime = maxTime - (int)Time.timeSinceLevelLoad;
 		PlayerPrefs.SetInt("Score", (score * ((leftTime/10) + 1)));
 		Application.LoadLevel("GameOver");
 	}
