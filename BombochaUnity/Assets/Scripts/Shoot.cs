@@ -25,10 +25,12 @@ public class Shoot : MonoBehaviour {
 
 		if(Input.GetButtonDown("Jump") && !isMoving){
 			isMoving = true;
+			gameMasterScript.stopDragAndDrop();
 			balls[ballSelected].rigidbody.AddForce(transform.parent.forward * force);
 			balls[ballSelected].transform.parent = null;
 			balls[ballSelected].rigidbody.useGravity = true;
 			gameMasterScript.stopBalls();
+
 		}
 	}
 

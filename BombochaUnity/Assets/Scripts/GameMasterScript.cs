@@ -30,6 +30,15 @@ public class GameMasterScript : MonoBehaviour {
 		StartCoroutine("stopBallsCoroutine");
 	}
 
+	public void stopDragAndDrop(){
+		foreach(GameObject ball in balls){
+			if(ball != null){
+				ball.GetComponent<DragAndDrop>().stop();
+				ball.GetComponent<DragAndDrop>().enabled = false;
+			}
+		}
+	}
+
 	IEnumerator stopBallsCoroutine(){
 		yield return new WaitForSeconds(12);
 		foreach(GameObject ball in balls){
